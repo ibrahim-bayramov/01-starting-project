@@ -10,5 +10,33 @@ import { TaskComponent } from './task/task.component';
 })
 
 export class TasksComponent {
-  @Input() name: string | undefined;
+  @Input({required: true}) userId!: string;
+  @Input({required: true}) name!: string;
+  tasks = [
+    {
+      id: 't1',
+      userId: 'u1',
+      title: 'Task 1',
+      summary: 'This is the first task',
+      dueDate: '2025-12-31'
+    },
+    {
+      id: 't2',
+      userId: 'u2',
+      title: 'Task 2',
+      summary: 'This is the first task',
+      dueDate: '2025-12-31'
+    },
+    {
+      id: 't3',
+      userId: 'u3',
+      title: 'Task 3',
+      summary: 'This is the first task',
+      dueDate: '2025-12-31'
+    },
+  ];
+
+  get selectedUserTasks() {
+    return this.tasks.filter((task) => task.userId === this.userId);
+  }
 }
