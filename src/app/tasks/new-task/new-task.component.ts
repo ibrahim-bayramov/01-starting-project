@@ -9,13 +9,10 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
-  @Output() taskAdded = new EventEmitter<string>();
-  newTaskTitle = '';
+  @Output() cancel = new EventEmitter<void>();
 
-  addTask() {
-    if (this.newTaskTitle.trim()) {
-      this.taskAdded.emit(this.newTaskTitle);
-      this.newTaskTitle = '';
-    }
+  onCancel() {
+    this.cancel.emit();
   }
+  
 }
