@@ -24,17 +24,15 @@ export class TasksComponent {
   }
 
   onCompleteTask(taskId: string) {
+    this.tasksService.removeTask(taskId);
   }
 
   onStartAddTask() {
     this.isAddingTask = true;
   }
 
-  onCancelAddTask() {
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 
-  onAddTask(task: NewTaskData) {
-    this.isAddingTask = false;
-  }
 }
